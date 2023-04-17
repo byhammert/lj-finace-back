@@ -1,0 +1,5 @@
+rootProject.name = 'lj-back'
+include 'domain'
+include 'application'
+include 'infrastructure'
+

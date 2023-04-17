@@ -1,0 +1,12 @@
+postgresql:
+  username: ${DATABASE_POSTGRESQL_USERNAME:postgres}
+  password: ${DATABASE_POSTGRESQL_PASSWORD:ljones}
+  schema: ${DATABASE_POSTGRESQL_SCHEMA:finances}
+  url: ${DATABASE_POSTGRESQL_URL:localhost:15432}
+
+spring:
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+

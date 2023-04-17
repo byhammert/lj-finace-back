@@ -1,0 +1,13 @@
+postgresql:
+  username: postgres
+  password: ljones
+  schema: finances
+  url: localhost:15432
+
+server:
+  port: 8080
+  undertow:
+    threads:
+      worker: 10
+      io: 2
+

@@ -1,0 +1,12 @@
+CREATE TABLE account (
+    id VARCHAR(36) NOT NULL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    user_id VARCHAR(255) NOT NULL,
+    category VARCHAR(20) NOT NULL,
+    symbol VARCHAR(20) NOT NULL,
+    balance BIGINT NOT NULL DEFAULT 0,
+    active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL,
+    deleted_at TIMESTAMP NULL
+)
