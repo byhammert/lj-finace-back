@@ -25,14 +25,9 @@ import java.util.stream.Stream;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
-@Profile("!development")
 public class SecurityConfig {
 
-    private static final String ROLE_ADMIN = "CATALOGO_ADMIN";
-    private static final String ROLE_CAST_MEMBERS = "CATALOGO_CAST_MEMBERS";
-    private static final String ROLE_CATEGORIES = "CATALOGO_CATEGORIES";
-    private static final String ROLE_GENRES = "CATALOGO_GENRES";
-    private static final String ROLE_VIDEOS = "CATALOGO_VIDEOS";
+    private static final String ENDPOINT_USER = "/usuario";
 
     @Bean
     public SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
@@ -42,9 +37,8 @@ public class SecurityConfig {
                 })
                 .authorizeHttpRequests(authorize -> {
                     authorize
-                            .antMatchers("/usuario").permitAll()
-                            .anyRequest().authenticated()
-                            .anyRequest().hasRole(ROLE_ADMIN);
+                            .antMatchers(ENDPOINT_USER).permitAll()
+                            .anyRequest().authenticated();
                 })
                 .oauth2ResourceServer(oauth -> {
                     oauth.jwt()

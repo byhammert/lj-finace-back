@@ -1,22 +1,18 @@
 buildscript {
     repositories {
-        jcenter()
         mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
     }
     dependencies {
-        classpath 'org.flywaydb:flyway-mysql:9.11.0'
+        classpath 'org.flywaydb:flyway-mysql:8.5.10'
     }
 }
 
 plugins {
     id 'java'
     id 'application'
-    id 'org.springframework.boot' version '2.7.7'
-    id 'io.spring.dependency-management' version '1.1.0'
-    id 'org.flywaydb.flyway' version '9.11.0'
+    id 'org.springframework.boot' version '2.6.7'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.flywaydb.flyway' version '8.5.10'
 }
 
 group 'com.lj.infrastructure'
@@ -24,6 +20,10 @@ group 'com.lj.infrastructure'
 bootJar {
     archiveName 'application.jar'
     destinationDirectory.set(file("${rootProject.buildDir}/libs"))
+}
+
+repositories {
+    mavenCentral()
 }
 
 dependencies {
