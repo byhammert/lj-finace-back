@@ -4,6 +4,10 @@ postgresql:
   schema: ${DATABASE_POSTGRESQL_SCHEMA:finances}
   url: ${DATABASE_POSTGRESQL_URL:localhost:15432}
 
+keycloak:
+  realm: ${KEYCLOAK_REALM:lj}
+  host: ${KEYCLOAK_HOST:http://localhost:8180}
+
 spring:
   jpa:
     show-sql: false

@@ -30,13 +30,9 @@ spring:
       "[hibernate.dialect]": org.hibernate.dialect.PostgreSQLDialect
       "[hibernate.generate_statistics]": false
       "[hibernate.connection.provider_disables_autocommit]": true
-
-keycloak:
-  realm: lj
-  auth-server-url: http://localhost:8180/auth
-  ssl-required: external
-  resource: lj-back
-  credentials:
-    secret: de022609-5e67-4306-8b83-d854e6f6d6f7
-  use-resource-role-mappings: true
-  bearer-only: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${keycloak.host}/realms/${keycloak.realm}/protocol/openid-connect/certs
+          issuer-uri: ${keycloak.host}/realms/${keycloak.realm}
